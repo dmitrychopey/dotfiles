@@ -20,6 +20,7 @@ set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
+set autoread
 
 set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=/usr/local/opt/fzf
@@ -37,6 +38,7 @@ Plugin 'tpope/vim-endwise'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'mileszs/ack.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -47,14 +49,6 @@ filetype plugin indent on    " required
 
 map <c-j> o<esc>
 nnoremap <c-f> :Files<CR>
-
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
 
 "-----FZF-----"
 
@@ -72,3 +66,7 @@ let g:fzf_colors =
   \ "marker":  ["fg", "IncSearch"],
   \ "spinner": ["fg", "IncSearch"],
   \ "header":  ["fg", "WildMenu"] }
+
+"-----Dependencies-----"
+" https://github.com/ggreer/the_silver_searcher - for :Ag and FZF
+" https://github.com/mileszs/ack.vim - for :Ag and FZF
