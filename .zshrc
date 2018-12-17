@@ -108,6 +108,13 @@ function klogs() {
 	local service="$1"
         local branch="$2"
         local pod=$(getpod "$service" "$branch")
+        kubectl -n "$branch" logs "$pod" 
+}
+
+function klogsf() {
+	local service="$1"
+        local branch="$2"
+        local pod=$(getpod "$service" "$branch")
         kubectl -n "$branch" logs "$pod" -f
 }
 
@@ -127,4 +134,5 @@ prompt pure
 export GOPATH=/Users/dmitrychopey/go
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export PATH=$PATH:/usr/local/Cellar/vim/8.1.0600
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
